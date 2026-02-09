@@ -26,6 +26,9 @@
     { "name": "terminal__read", "description": "Read output from a terminal session" },
     { "name": "terminal__info", "description": "Get information about a terminal session without reading content" }
   ],
+  "compatibility": {
+    "platforms": ["darwin", "linux"]
+  },
   "user_config": {
     "default_rows": {
       "type": "number",
@@ -73,6 +76,9 @@
     "store.tool.mcpb": {
       "scripts": {
         "build": "cargo build --release"
+      },
+      "compatibility": {
+        "platforms": ["darwin-arm64", "darwin-x86_64", "linux-arm64", "linux-x86_64"]
       },
       "static_responses": {
         "tools/list": {

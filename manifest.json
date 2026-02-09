@@ -19,15 +19,36 @@
     }
   },
   "tools": [
-    { "name": "terminal__create", "description": "Create a new terminal session running any program (shell by default)" },
-    { "name": "terminal__destroy", "description": "Terminate a terminal session and clean up resources" },
-    { "name": "terminal__list", "description": "List all active terminal sessions" },
-    { "name": "terminal__send", "description": "Send input (text or special keys) to a terminal session" },
-    { "name": "terminal__read", "description": "Read output from a terminal session" },
-    { "name": "terminal__info", "description": "Get information about a terminal session without reading content" }
+    {
+      "name": "terminal__create",
+      "description": "Create a new terminal session running any program (shell by default)"
+    },
+    {
+      "name": "terminal__destroy",
+      "description": "Terminate a terminal session and clean up resources"
+    },
+    {
+      "name": "terminal__list",
+      "description": "List all active terminal sessions"
+    },
+    {
+      "name": "terminal__send",
+      "description": "Send input (text or special keys) to a terminal session"
+    },
+    {
+      "name": "terminal__read",
+      "description": "Read output from a terminal session"
+    },
+    {
+      "name": "terminal__info",
+      "description": "Get information about a terminal session without reading content"
+    }
   ],
   "compatibility": {
-    "platforms": ["darwin", "linux"]
+    "platforms": [
+      "darwin",
+      "linux"
+    ]
   },
   "user_config": {
     "default_rows": {
@@ -78,7 +99,12 @@
         "build": "cargo build --release"
       },
       "compatibility": {
-        "platforms": ["darwin-arm64", "darwin-x86_64", "linux-arm64", "linux-x86_64"]
+        "platforms": [
+          "darwin-arm64",
+          "darwin-x86_64",
+          "linux-arm64",
+          "linux-x86_64"
+        ]
       },
       "static_responses": {
         "tools/list": {
@@ -95,7 +121,9 @@
                   },
                   "args": {
                     "type": "array",
-                    "items": { "type": "string" },
+                    "items": {
+                      "type": "string"
+                    },
                     "description": "Program arguments"
                   },
                   "rows": {
@@ -108,7 +136,9 @@
                   },
                   "env": {
                     "type": "object",
-                    "additionalProperties": { "type": "string" },
+                    "additionalProperties": {
+                      "type": "string"
+                    },
                     "description": "Additional environment variables"
                   },
                   "cwd": {
@@ -128,14 +158,24 @@
               "output_schema": {
                 "type": "object",
                 "properties": {
-                  "session_id": { "type": "string" },
-                  "pid": { "type": "integer" },
-                  "program": { "type": "string" },
+                  "session_id": {
+                    "type": "string"
+                  },
+                  "pid": {
+                    "type": "integer"
+                  },
+                  "program": {
+                    "type": "string"
+                  },
                   "dimensions": {
                     "type": "object",
                     "properties": {
-                      "rows": { "type": "integer" },
-                      "cols": { "type": "integer" }
+                      "rows": {
+                        "type": "integer"
+                      },
+                      "cols": {
+                        "type": "integer"
+                      }
                     }
                   }
                 }
@@ -146,7 +186,9 @@
               "description": "Terminate a terminal session and clean up resources.",
               "input_schema": {
                 "type": "object",
-                "required": ["session_id"],
+                "required": [
+                  "session_id"
+                ],
                 "properties": {
                   "session_id": {
                     "type": "string",
@@ -161,8 +203,12 @@
               "output_schema": {
                 "type": "object",
                 "properties": {
-                  "destroyed": { "type": "boolean" },
-                  "exit_code": { "type": "integer" }
+                  "destroyed": {
+                    "type": "boolean"
+                  },
+                  "exit_code": {
+                    "type": "integer"
+                  }
                 }
               }
             },
@@ -181,19 +227,42 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "session_id": { "type": "string" },
-                        "program": { "type": "string" },
-                        "args": { "type": "array", "items": { "type": "string" } },
-                        "pid": { "type": "integer" },
-                        "created_at": { "type": "string" },
-                        "dimensions": { "type": "object" },
-                        "exited": { "type": "boolean" },
-                        "exit_code": { "type": "integer" },
-                        "healthy": { "type": "boolean" }
+                        "session_id": {
+                          "type": "string"
+                        },
+                        "program": {
+                          "type": "string"
+                        },
+                        "args": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "pid": {
+                          "type": "integer"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "dimensions": {
+                          "type": "object"
+                        },
+                        "exited": {
+                          "type": "boolean"
+                        },
+                        "exit_code": {
+                          "type": "integer"
+                        },
+                        "healthy": {
+                          "type": "boolean"
+                        }
                       }
                     }
                   },
-                  "count": { "type": "integer" }
+                  "count": {
+                    "type": "integer"
+                  }
                 }
               }
             },
@@ -202,7 +271,9 @@
               "description": "Send input (text or special keys) to a terminal session. Optionally read output after sending.",
               "input_schema": {
                 "type": "object",
-                "required": ["session_id"],
+                "required": [
+                  "session_id"
+                ],
                 "properties": {
                   "session_id": {
                     "type": "string",
@@ -214,7 +285,34 @@
                   },
                   "key": {
                     "type": "string",
-                    "enum": ["up", "down", "left", "right", "home", "end", "pageup", "pagedown", "backspace", "delete", "insert", "tab", "enter", "escape", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12"],
+                    "enum": [
+                      "up",
+                      "down",
+                      "left",
+                      "right",
+                      "home",
+                      "end",
+                      "pageup",
+                      "pagedown",
+                      "backspace",
+                      "delete",
+                      "insert",
+                      "tab",
+                      "enter",
+                      "escape",
+                      "f1",
+                      "f2",
+                      "f3",
+                      "f4",
+                      "f5",
+                      "f6",
+                      "f7",
+                      "f8",
+                      "f9",
+                      "f10",
+                      "f11",
+                      "f12"
+                    ],
                     "description": "Special key to send"
                   },
                   "ctrl": {
@@ -231,18 +329,41 @@
                   },
                   "bracketed_paste": {
                     "type": "string",
-                    "enum": ["auto", "always", "never"],
+                    "enum": [
+                      "auto",
+                      "always",
+                      "never"
+                    ],
                     "description": "Bracketed paste mode"
                   },
                   "read": {
                     "type": "object",
                     "description": "Optional: read output after sending",
                     "properties": {
-                      "view": { "type": "string", "enum": ["screen", "new", "scrollback"] },
-                      "format": { "type": "string", "enum": ["plain", "raw"] },
-                      "timeout_ms": { "type": "integer" },
-                      "wait_idle_ms": { "type": "integer" },
-                      "wait_for_prompt": { "type": "boolean" }
+                      "view": {
+                        "type": "string",
+                        "enum": [
+                          "screen",
+                          "new",
+                          "scrollback"
+                        ]
+                      },
+                      "format": {
+                        "type": "string",
+                        "enum": [
+                          "plain",
+                          "raw"
+                        ]
+                      },
+                      "timeout_ms": {
+                        "type": "integer"
+                      },
+                      "wait_idle_ms": {
+                        "type": "integer"
+                      },
+                      "wait_for_prompt": {
+                        "type": "boolean"
+                      }
                     }
                   }
                 }
@@ -250,8 +371,12 @@
               "output_schema": {
                 "type": "object",
                 "properties": {
-                  "sent": { "type": "boolean" },
-                  "read_result": { "type": "object" }
+                  "sent": {
+                    "type": "boolean"
+                  },
+                  "read_result": {
+                    "type": "object"
+                  }
                 }
               }
             },
@@ -260,7 +385,9 @@
               "description": "Read output from a terminal session. Supports screen view (TUI), new output (commands), and scrollback (history).",
               "input_schema": {
                 "type": "object",
-                "required": ["session_id"],
+                "required": [
+                  "session_id"
+                ],
                 "properties": {
                   "session_id": {
                     "type": "string",
@@ -268,12 +395,19 @@
                   },
                   "view": {
                     "type": "string",
-                    "enum": ["screen", "new", "scrollback"],
+                    "enum": [
+                      "screen",
+                      "new",
+                      "scrollback"
+                    ],
                     "description": "View mode: screen (visible buffer), new (since last read), scrollback (history)"
                   },
                   "format": {
                     "type": "string",
-                    "enum": ["plain", "raw"],
+                    "enum": [
+                      "plain",
+                      "raw"
+                    ],
                     "description": "Output format: plain (no ANSI) or raw (with ANSI)"
                   },
                   "timeout_ms": {
@@ -301,15 +435,33 @@
               "output_schema": {
                 "type": "object",
                 "properties": {
-                  "content": { "type": "string" },
-                  "lines": { "type": "integer" },
-                  "cursor": { "type": "object" },
-                  "dimensions": { "type": "object" },
-                  "has_new_content": { "type": "boolean" },
-                  "prompt_detected": { "type": "boolean" },
-                  "idle": { "type": "boolean" },
-                  "exited": { "type": "boolean" },
-                  "exit_code": { "type": "integer" }
+                  "content": {
+                    "type": "string"
+                  },
+                  "lines": {
+                    "type": "integer"
+                  },
+                  "cursor": {
+                    "type": "object"
+                  },
+                  "dimensions": {
+                    "type": "object"
+                  },
+                  "has_new_content": {
+                    "type": "boolean"
+                  },
+                  "prompt_detected": {
+                    "type": "boolean"
+                  },
+                  "idle": {
+                    "type": "boolean"
+                  },
+                  "exited": {
+                    "type": "boolean"
+                  },
+                  "exit_code": {
+                    "type": "integer"
+                  }
                 }
               }
             },
@@ -318,7 +470,9 @@
               "description": "Get information about a terminal session without reading content.",
               "input_schema": {
                 "type": "object",
-                "required": ["session_id"],
+                "required": [
+                  "session_id"
+                ],
                 "properties": {
                   "session_id": {
                     "type": "string",
@@ -329,17 +483,42 @@
               "output_schema": {
                 "type": "object",
                 "properties": {
-                  "session_id": { "type": "string" },
-                  "program": { "type": "string" },
-                  "args": { "type": "array", "items": { "type": "string" } },
-                  "pid": { "type": "integer" },
-                  "created_at": { "type": "string" },
-                  "cursor": { "type": "object" },
-                  "dimensions": { "type": "object" },
-                  "exited": { "type": "boolean" },
-                  "exit_code": { "type": "integer" },
-                  "healthy": { "type": "boolean" },
-                  "cwd": { "type": "string" }
+                  "session_id": {
+                    "type": "string"
+                  },
+                  "program": {
+                    "type": "string"
+                  },
+                  "args": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "pid": {
+                    "type": "integer"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "cursor": {
+                    "type": "object"
+                  },
+                  "dimensions": {
+                    "type": "object"
+                  },
+                  "exited": {
+                    "type": "boolean"
+                  },
+                  "exit_code": {
+                    "type": "integer"
+                  },
+                  "healthy": {
+                    "type": "boolean"
+                  },
+                  "cwd": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -347,5 +526,6 @@
         }
       }
     }
-  }
+  },
+  "documentation": "https://github.com/zerocore-ai-library/terminal-mcpb"
 }

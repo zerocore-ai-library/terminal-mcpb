@@ -4,7 +4,7 @@ An MCP server providing PTY-based terminal sessions with full terminal emulation
 
 ## Tools
 
-### `terminal__create`
+### `create`
 
 Create a new terminal session running any program (shell by default).
 
@@ -28,7 +28,7 @@ Create a new terminal session running any program (shell by default).
 | `program` | string | Program running in the session |
 | `dimensions` | object | Terminal dimensions (`rows`, `cols`) |
 
-### `terminal__destroy`
+### `destroy`
 
 Terminate a terminal session and clean up resources.
 
@@ -44,7 +44,7 @@ Terminate a terminal session and clean up resources.
 | `destroyed` | boolean | Whether the session was destroyed |
 | `exit_code` | integer | Exit code of the terminated process |
 
-### `terminal__list`
+### `list`
 
 List all active terminal sessions.
 
@@ -54,7 +54,7 @@ List all active terminal sessions.
 | `sessions` | array | List of session info objects |
 | `count` | integer | Number of active sessions |
 
-### `terminal__send`
+### `send`
 
 Send input (text or special keys) to a terminal session.
 
@@ -76,7 +76,7 @@ Send input (text or special keys) to a terminal session.
 | `sent` | boolean | Whether input was sent |
 | `read_result` | object | Read result (if `read` was specified) |
 
-### `terminal__read`
+### `read`
 
 Read output from a terminal session.
 
@@ -105,7 +105,7 @@ Read output from a terminal session.
 | `exited` | boolean | Whether the process exited |
 | `exit_code` | integer | Exit code (if exited) |
 
-### `terminal__info`
+### `info`
 
 Get information about a terminal session without reading content.
 
@@ -195,12 +195,12 @@ tool validate /path/to/terminal
 
 ```bash
 # Test creating a session
-tool call /path/to/terminal -m terminal__create
+tool call /path/to/terminal -m create
 ```
 
 ```bash
 # List active sessions
-tool call /path/to/terminal -m terminal__list
+tool call /path/to/terminal -m list
 ```
 
 ### Manual Build

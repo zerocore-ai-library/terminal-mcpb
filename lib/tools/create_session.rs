@@ -1,4 +1,4 @@
-//! terminal__create tool implementation.
+//! create tool implementation.
 
 use std::collections::HashMap;
 use std::path::PathBuf;

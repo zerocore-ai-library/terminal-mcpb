@@ -1,4 +1,4 @@
-//! terminal__list tool implementation.
+//! list tool implementation.
 
 use std::sync::Arc;
 

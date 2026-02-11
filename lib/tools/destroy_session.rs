@@ -1,4 +1,4 @@
-//! terminal__destroy tool implementation.
+//! destroy tool implementation.
 
 use std::sync::Arc;
 

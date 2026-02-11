@@ -1,4 +1,4 @@
-//! terminal__read tool implementation.
+//! read tool implementation.
 
 use std::sync::Arc;
 use std::time::{Duration, Instant};

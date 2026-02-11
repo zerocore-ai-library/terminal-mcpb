@@ -73,7 +73,7 @@ impl Default for Server {
 impl Server {
     /// Create a new terminal session.
     #[tool(
-        name = "terminal__create",
+        name = "create",
         description = "Create a new terminal session running any program (shell by default). Returns a session_id for subsequent operations."
     )]
     async fn create_session(
@@ -85,7 +85,7 @@ impl Server {
 
     /// Destroy a terminal session.
     #[tool(
-        name = "terminal__destroy",
+        name = "destroy",
         description = "Terminate a terminal session and clean up resources."
     )]
     async fn destroy_session(
@@ -97,7 +97,7 @@ impl Server {
 
     /// List all terminal sessions.
     #[tool(
-        name = "terminal__list",
+        name = "list",
         description = "List all active terminal sessions."
     )]
     async fn list_sessions(&self) -> Result<Json<ListSessionsOutput>, McpError> {
@@ -106,7 +106,7 @@ impl Server {
 
     /// Send input to a terminal session.
     #[tool(
-        name = "terminal__send",
+        name = "send",
         description = "Send input (text or special keys) to a terminal session. Optionally read output after sending."
     )]
     async fn send(&self, params: Parameters<SendInput>) -> Result<Json<SendOutput>, McpError> {
@@ -115,7 +115,7 @@ impl Server {
 
     /// Read output from a terminal session.
     #[tool(
-        name = "terminal__read",
+        name = "read",
         description = "Read output from a terminal session. Supports screen view (TUI), new output (commands), and scrollback (history)."
     )]
     async fn read(&self, params: Parameters<ReadInput>) -> Result<Json<ReadOutput>, McpError> {
@@ -124,7 +124,7 @@ impl Server {
 
     /// Get information about a terminal session.
     #[tool(
-        name = "terminal__info",
+        name = "info",
         description = "Get information about a terminal session without reading content."
     )]
     async fn get_info(
@@ -148,9 +148,9 @@ impl ServerHandler for Server {
             server_info: Implementation::from_build_env(),
             instructions: Some(
                 "Terminal MCP server providing PTY-based terminal sessions. \
-                 Create sessions with terminal__create, send input with terminal__send, \
-                 read output with terminal__read, and manage sessions with terminal__list \
-                 and terminal__destroy."
+                 Create sessions with create, send input with send, \
+                 read output with read, and manage sessions with list \
+                 and destroy."
                     .to_string(),
             ),
         }

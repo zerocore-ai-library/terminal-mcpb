@@ -20,27 +20,27 @@
   },
   "tools": [
     {
-      "name": "terminal__create",
+      "name": "create",
       "description": "Create a new terminal session running any program (shell by default)"
     },
     {
-      "name": "terminal__destroy",
+      "name": "destroy",
       "description": "Terminate a terminal session and clean up resources"
     },
     {
-      "name": "terminal__list",
+      "name": "list",
       "description": "List all active terminal sessions"
     },
     {
-      "name": "terminal__send",
+      "name": "send",
       "description": "Send input (text or special keys) to a terminal session"
     },
     {
-      "name": "terminal__read",
+      "name": "read",
       "description": "Read output from a terminal session"
     },
     {
-      "name": "terminal__info",
+      "name": "info",
       "description": "Get information about a terminal session without reading content"
     }
   ],
@@ -96,7 +96,7 @@
   "_meta": {
     "store.tool.mcpb": {
       "scripts": {
-        "build": "cargo build --release"
+        "build": "cargo build --release && mkdir -p dist && cp target/release/terminal dist/"
       },
       "compatibility": {
         "platforms": [
@@ -110,7 +110,7 @@
         "tools/list": {
           "tools": [
             {
-              "name": "terminal__create",
+              "name": "create",
               "description": "Create a new terminal session running any program (shell by default). Returns a session_id for subsequent operations.",
               "input_schema": {
                 "type": "object",
@@ -182,7 +182,7 @@
               }
             },
             {
-              "name": "terminal__destroy",
+              "name": "destroy",
               "description": "Terminate a terminal session and clean up resources.",
               "input_schema": {
                 "type": "object",
@@ -213,7 +213,7 @@
               }
             },
             {
-              "name": "terminal__list",
+              "name": "list",
               "description": "List all active terminal sessions.",
               "input_schema": {
                 "type": "object",
@@ -267,7 +267,7 @@
               }
             },
             {
-              "name": "terminal__send",
+              "name": "send",
               "description": "Send input (text or special keys) to a terminal session. Optionally read output after sending.",
               "input_schema": {
                 "type": "object",
@@ -381,7 +381,7 @@
               }
             },
             {
-              "name": "terminal__read",
+              "name": "read",
               "description": "Read output from a terminal session. Supports screen view (TUI), new output (commands), and scrollback (history).",
               "input_schema": {
                 "type": "object",
@@ -466,7 +466,7 @@
               }
             },
             {
-              "name": "terminal__info",
+              "name": "info",
               "description": "Get information about a terminal session without reading content.",
               "input_schema": {
                 "type": "object",

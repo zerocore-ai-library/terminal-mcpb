@@ -1,4 +1,4 @@
-//! terminal__send tool implementation.
+//! send tool implementation.
 
 use std::sync::Arc;
 

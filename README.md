@@ -4,44 +4,28 @@ An MCP server providing PTY-based terminal sessions with full terminal emulation
 
 ## Setup
 
-### Using tool CLI (Recommended)
+### Using tool CLI
 
-Install from https://github.com/zerocore-ai/tool-cli
+Install the CLI from https://github.com/zerocore-ai/tool-cli
 
 ```bash
-# Build the tool
-tool run build /path/to/terminal
+# Install from tool.store
+tool install library/terminal
 ```
 
 ```bash
-# Validate the manifest
-tool validate /path/to/terminal
+# View available tools
+tool info library/terminal
 ```
 
 ```bash
-# Test creating a session
-tool call /path/to/terminal -m create
+# Create a terminal session
+tool call library/terminal -m create
 ```
 
 ```bash
 # List active sessions
-tool call /path/to/terminal -m list
-```
-
-### Manual Build
-
-```bash
-cargo build --release
-```
-
-## Testing
-
-```bash
-# Run unit tests
-cargo test
-
-# Run integration tests
-cargo test --test integration
+tool call library/terminal -m list
 ```
 
 ## Tools
@@ -226,4 +210,4 @@ When installed via MCPB, configure defaults through the manifest:
 
 ## License
 
-MIT
+Apache-2.0

@@ -2,6 +2,48 @@
 
 An MCP server providing PTY-based terminal sessions with full terminal emulation for interactive applications. Supports multiple concurrent sessions, special keys, and TUI programs.
 
+## Setup
+
+### Using tool CLI (Recommended)
+
+Install from https://github.com/zerocore-ai/tool-cli
+
+```bash
+# Build the tool
+tool run build /path/to/terminal
+```
+
+```bash
+# Validate the manifest
+tool validate /path/to/terminal
+```
+
+```bash
+# Test creating a session
+tool call /path/to/terminal -m create
+```
+
+```bash
+# List active sessions
+tool call /path/to/terminal -m list
+```
+
+### Manual Build
+
+```bash
+cargo build --release
+```
+
+## Testing
+
+```bash
+# Run unit tests
+cargo test
+
+# Run integration tests
+cargo test --test integration
+```
+
 ## Tools
 
 ### `create`
@@ -176,48 +218,6 @@ When installed via MCPB, configure defaults through the manifest:
 | `scrollback_limit` | integer | 10000 | Max scrollback lines per session |
 | `prompt_pattern` | string | `\$\s*$\|#\s*$\|>\s*$` | Regex for prompt detection |
 | `max_sessions` | integer | 10 | Maximum concurrent sessions |
-
-## Setup
-
-### Using tool CLI (Recommended)
-
-Install from https://github.com/zerocore-ai/tool-cli
-
-```bash
-# Build the tool
-tool run build /path/to/terminal
-```
-
-```bash
-# Validate the manifest
-tool validate /path/to/terminal
-```
-
-```bash
-# Test creating a session
-tool call /path/to/terminal -m create
-```
-
-```bash
-# List active sessions
-tool call /path/to/terminal -m list
-```
-
-### Manual Build
-
-```bash
-cargo build --release
-```
-
-## Testing
-
-```bash
-# Run unit tests
-cargo test
-
-# Run integration tests
-cargo test --test integration
-```
 
 ## Platform Support
 
